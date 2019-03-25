@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         final ImageButton btnAdd = findViewById(R.id.btnAdd);
         btnAdd.setEnabled(false);
         btnAdd.setClickable(false);
+
         btnAdd.setAlpha(75);
 
 
