@@ -40,7 +40,8 @@ public class TasksActivity extends AppCompatActivity {
 
     public List<Task> generateFakeData(){
         List<Task> tasks = new ArrayList<>();
-        for (int i = 0; i < 200; i++) {
+        for (int i = 0; i < 50; i++) {
+
             tasks.add(new Task( "Task " + i, 3));
         }
         return tasks;
