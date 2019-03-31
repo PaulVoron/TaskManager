@@ -1,6 +1,10 @@
 package com.gmail.voron.paul.taskmanager;
 
-public class Task {
+import java.io.Serializable;
+
+public class Task implements Serializable {
+    public static final long serialVersionUID = 2975820333949550622L;
+
     private final String name;
     private final int priority;
 

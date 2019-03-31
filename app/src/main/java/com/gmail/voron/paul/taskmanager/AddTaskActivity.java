@@ -1,15 +1,17 @@
 package com.gmail.voron.paul.taskmanager;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.Html;
 import android.text.TextWatcher;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
-public class MainActivity extends AppCompatActivity {
+public class AddTaskActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,13 +20,21 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setTitle("Новая запись");
-        EditText etName = findViewById(R.id.etName);
+        final EditText etName = findViewById(R.id.etName);
         final ImageButton btnAdd = findViewById(R.id.btnAdd);
         btnAdd.setEnabled(false);
         btnAdd.setClickable(false);
-
         btnAdd.setAlpha(75);
 
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Task task = new Task(etName.getText().toString(), 0);
+                Intent data = new Intent().putExtra(Task.class.getName(), task);
+                setResult(RESULT_OK, data);
+                finish();
+            }
+        });
 
         etName.addTextChangedListener(new TextWatcher() {
             @Override
